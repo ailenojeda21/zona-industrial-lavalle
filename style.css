@@ -1,0 +1,102 @@
+.hero {
+    background-image: url('assets/img/imagendeejemplo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según sea necesario */
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  .logo-left {
+    margin-left: 0;
+}
+
+.container {
+    padding-left: 0;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand-text {
+    margin-left: 10px; /* Ajusta el margen según sea necesario */
+    line-height: 1.2; /* Ajusta la altura de línea para mejor alineación */
+}
+.navbar-collapse {
+  justify-content: flex-start; /* Alinea el menú con el botón de hamburguesa */
+}
+
+.navbar-nav {
+  flex-direction: column; /* Alinea el menú verticalmente */
+  margin-top: 10px; /* Ajusta el margen según sea necesario */
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    justify-content: center; /* Centra el menú en pantallas pequeñas */
+  }
+}
+.conocenos{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+h2{
+  color: rgb(28, 31, 58);
+  font-size: 3.5rem;
+}
+h3{
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+h4{
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  text-align: center;
+  margin-left: 600px;
+  padding-bottom: 6px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+/* Estilo para todas las celdas */
+td, th {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+.custom-list {
+  list-style-position: inside; /* Mantiene los puntos visibles dentro del contenedor */
+  padding-left: 20px; /* Ajuste del padding para el contenido de la lista */
+}
+
+.custom-list li::marker {
+  font-size: 30px; /* Tamaño grande del punto */
+  color: #0d4da7; /* Color azul oscuro */
+}
+
+.custom-list li {
+  margin-bottom: -10px; /* Ajusta el espacio entre los ítems de la lista */
+  line-height: 1.2; /* Reduce el espacio entre el punto y el texto */
+}
