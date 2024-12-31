@@ -115,32 +115,25 @@
 </div>
 
 </section>
-<section class="ubicacion" id="ubicacion">
+<section class=" ubicacion" id="ubicacion">
   <div class="container bg-dark">
     <div>
       <h3 class="text-white">UBICACIÓN</h3>
     </div>
   </div>
-
+<br><br>
   <div class="container">
     <div class="row align-items-start">
       <!-- Columna para el párrafo -->
       <div class="col-md-12  mb-3">
-        <p>La Zona Industrial Lavalle se encuentra ubicada en la provincia de Mendoza, Departamento de Lavalle, distrito Villa Tulumaya. Limites de calles:</p>
-        <ul  class="custom-list">
-          <li>Norte: Calle Los Pastalitos y Carlos Recchia</li>
-          <li>Sur: Ruta Provincial 34</li>
-          <li>Este: Furlan l</li>
-          <li>Oeste: Calle San Juan</li>
-        </ul>
-        <p></p>
-        <h4 >DISTANCIAS RELATIVAS</h4>
-
+        <p>La Zona Industrial Lavalle se encuentra ubicada en la provincia de Mendoza, Departamento de Lavalle, distrito Villa Tulumaya. Limites de calles: Norte: Calle Los Pastalitos y Carlos Recchia, Sur: Ruta Provincial 34, Este: Furlan l, Oeste: Calle San Juan.</p>
+        
 
       </div>
     </div>
 
     <div class="row align-items-start">
+
       <!-- Columna para la imagen -->
       <div class="col-md-6">
         <img src="assets/img/mapa.png" alt="Mapa" class="img-fluid mb-3">
@@ -148,9 +141,11 @@
 
       <!-- Columna para la tabla -->
       <div class="col-md-6">
-   
-        <table class="table table-bordered table-light">
+        <table class="table table-bordered">
           <thead>
+            <tr>
+              <th colspan="3" class="text-center">DISTANCIAS RELATIVAS</th>
+            </tr>
             <tr>
               <th>Distancia</th>
               <th>Acceso</th>
@@ -196,28 +191,57 @@
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
+      
 </section>
 
 
 
-<section class="ubicacion" id="ubicacion">
+<section class="caracteristicas" id="caracteristicas">
   <div class="container bg-dark">
     <div>
       <h3 class="text-white">Caracteristícas</h3>
     </div>
   </div>
+  <div class="map-container">
+    <!-- Imagen del mapa -->
+    <img src="assets/PLANO ZIL EDITADO_page-0001.svg" alt="Mapa de Zonas" class="map-image" />
+  
+    <!-- Zonas interactivas -->
+    <div class="zone" style="top: 20%; left: 30%;" data-info="Zona 1: Nombre 1"></div>
+    <div class="zone" style="top: 50%; left: 50%;" data-info="Zona 2: Nombre 2"></div>
+    <div class="zone" style="top: 70%; left: 20%;" data-info="Zona 3: Nombre 3"></div>
+  
+    <!-- Cartel -->
+    <div id="tooltip" class="tooltip"></div>
+  </div>
 
+  <script>
+  const zones = document.querySelectorAll('.zone');
+  const tooltip = document.getElementById('tooltip');
+  
+  zones.forEach(zone => {
+    zone.addEventListener('mouseover', (e) => {
+      const info = e.target.dataset.info;
+      tooltip.textContent = info;
+      tooltip.style.left = e.pageX + 'px';
+      tooltip.style.top = e.pageY + 'px';
+      tooltip.style.display = 'block';
+    });
+  
+    zone.addEventListener('mouseout', () => {
+      tooltip.style.display = 'none';
+    });
+  });
+</script>
   
 </section>
 
 
 
     </main>
-    <footer>
-      <!-- place footer here -->
-    </footer>
+    <footer class="py-5 bg-dark">
+      <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+  </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

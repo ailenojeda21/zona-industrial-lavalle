@@ -80,12 +80,6 @@ table {
   margin-bottom: 10px;
 }
 
-/* Estilo para todas las celdas */
-td, th {
-  border: 1px solid black;
-  padding: 10px;
-  text-align: center;
-}
 
 .custom-list {
   list-style-position: inside; /* Mantiene los puntos visibles dentro del contenedor */
@@ -100,4 +94,43 @@ td, th {
 .custom-list li {
   margin-bottom: -10px; /* Ajusta el espacio entre los ítems de la lista */
   line-height: 1.2; /* Reduce el espacio entre el punto y el texto */
+}
+
+.table-bordered {
+  border: 1.3px solid #0d4da7 !important;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1.3px solid #0d4da7 !important;
+}
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.map-image {
+  width: 50%;
+  height: auto;
+}
+
+.zone {
+  position: absolute;
+  width: 30px; /* Ajusta según el tamaño */
+  height: 30px;
+  background-color: rgba(239, 78, 78, 0.929);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  background: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+  pointer-events: none;
 }
