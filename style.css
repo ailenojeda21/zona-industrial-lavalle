@@ -29,50 +29,104 @@
 .container {
     padding-left: 0;
 }
+.navbar {
+    position: fixed; /* Fija todo el navbar al viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    z-index: 1000; /* Coloca el navbar por encima del contenido */
+    background-color: #fff; /* Fondo blanco para visibilidad */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Opcional, añade sombra */
+}
+
 .navbar-brand {
     display: flex;
     align-items: center;
 }
 
 .brand-text {
-    margin-left: 10px; /* Ajusta el margen según sea necesario */
-    line-height: 1.2; /* Ajusta la altura de línea para mejor alineación */
+    margin-left: 10px;
+    line-height: 1.2;
 }
+
 .navbar-collapse {
-  justify-content: flex-start; /* Alinea el menú con el botón de hamburguesa */
+    justify-content: flex-start;
 }
 
 .navbar-nav {
-  flex-direction: column; /* Alinea el menú verticalmente */
-  margin-top: 10px; /* Ajusta el margen según sea necesario */
+    flex-direction: column;
+    margin-top: 10px;
 }
 
 @media (max-width: 992px) {
-  .navbar-collapse {
-    justify-content: center; /* Centra el menú en pantallas pequeñas */
-  }
+    .navbar-collapse {
+        justify-content: center;
+    }
 }
+
 .conocenos{
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 90px;
 }
 h2{
   color: rgb(28, 31, 58);
   font-size: 3.5rem;
 }
-h3{
-  color: rgb(255, 255, 255);
-  font-size: 2rem;
-  text-align: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+h3 {
+  position: relative;
+  font-size: 2rem; /* Tamaño del texto */
+  color: #021f3c; /* Color del texto */
+  text-align: center; /* Centra el texto */
+  margin: 20px 0; /* Espaciado superior e inferior */
 }
+
+h3::after {
+  content: ""; /* Línea horizontal */
+  position: absolute;
+  bottom: -10px; /* Coloca la línea debajo del texto */
+  left: 0; /* Comienza desde el lado izquierdo */
+  width: 100%; /* Ancho completo de la línea */
+  height: 2px; /* Grosor de la línea */
+  background-color: #ccc; /* Color de la línea */
+}
+
+.ubi{
+  margin-bottom: 60px;
+}
+
+.ubicacion{
+  margin-bottom: 60px;
+  
+
+}
+
+.googlemaps{
+  width: 550px; /* Ancho de la imagen */
+  height: 490px; /* Alto de la imagen */
+}
+
+.tarjetas {
+  background-color: #34517a; /* Fondo oscuro para que resalte con el texto blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de elevación */
+  padding: 20px; /* Espaciado interno para que no quede pegado al borde */
+  margin-bottom: 20px; /* Espaciado inferior para separarlo de otros elementos */
+}
+
+.tarjetas h4 {
+  margin-bottom: 15px; /* Espaciado inferior para los títulos */
+  font-weight: bold; /* Asegura que los títulos sean destacados */
+}
+
+.tarjetas p {
+  margin-bottom: 10px; /* Espaciado entre párrafos */
+  line-height: 1.5; /* Mejora la legibilidad */
+}
+
 h4{
-  color: rgb(0, 0, 0);
-  font-size: 1rem;
-  text-align: center;
-  margin-left: 600px;
-  padding-bottom: 6px;
+  color: #f2f3f5;
+  font-size: 2rem;
+ 
 }
 table {
   width: 100%;
@@ -133,4 +187,39 @@ table {
   border-radius: 5px;
   display: none;
   pointer-events: none;
+}
+
+.list-container{
+  margin-left: 20px;
+}
+.list-container p {
+  margin-bottom: 5px; /* Ajusta el espacio entre los párrafos */
+}
+
+.servicio-card {
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+
+.servicio-icon {
+  font-size: 3rem; /* Tamaño del ícono */
+  color: #2b61ac; /* Color del ícono */
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  font-size: 0.9rem; /* Texto más compacto */
+  color: #555; /* Color secundario */
 }

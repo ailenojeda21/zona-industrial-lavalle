@@ -19,6 +19,10 @@
     />
 
     <link href="style.css" rel="stylesheet" />
+ <!-- Última versión de Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
   </head>
 
   <body>
@@ -42,16 +46,16 @@
                 <a class="nav-link active" aria-current="page" href="#!">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#!">Ubicación</a>
+                <a class="nav-link" href="#ubicacion">Ubicación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#!">Características</a>
+                <a class="nav-link" href="#caracteristicas">Características</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#!">Servicios</a>
+                <a class="nav-link" href="#servicios">Servicios</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#!">Contacto</a>
+                <a class="nav-link" href="contacto">Contacto</a>
               </li>
             </ul>
           </div>
@@ -115,91 +119,52 @@
 </div>
 
 </section>
-<section class=" ubicacion" id="ubicacion">
-  <div class="container bg-dark">
+
+
+
+<section class="ubicacion" id="ubicacion">
+  <div class="container ubi">
     <div>
-      <h3 class="text-white">UBICACIÓN</h3>
+      <h3>UBICACIÓN</h3>
     </div>
   </div>
-<br><br>
-  <div class="container">
+
+  <div class="container ">
     <div class="row align-items-start">
-      <!-- Columna para el párrafo -->
-      <div class="col-md-12  mb-3">
-        <p>La Zona Industrial Lavalle se encuentra ubicada en la provincia de Mendoza, Departamento de Lavalle, distrito Villa Tulumaya. Limites de calles: Norte: Calle Los Pastalitos y Carlos Recchia, Sur: Ruta Provincial 34, Este: Furlan l, Oeste: Calle San Juan.</p>
-        
-
-      </div>
-    </div>
-
-    <div class="row align-items-start">
-
       <!-- Columna para la imagen -->
       <div class="col-md-6">
-        <img src="assets/img/mapa.png" alt="Mapa" class="img-fluid mb-3">
+        <img src="assets/img/mapa.png" alt="Mapa" class="googlemaps">
       </div>
 
-      <!-- Columna para la tabla -->
-      <div class="col-md-6">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th colspan="3" class="text-center">DISTANCIAS RELATIVAS</th>
-            </tr>
-            <tr>
-              <th>Distancia</th>
-              <th>Acceso</th>
-              <th>Km</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Aeropuerto Francisco Gabrielli</td>
-              <td>RN 40</td>
-              <td>35</td>
-            </tr>
-            <tr>
-              <td>Estación Multimodal FFCC Palmira</td>
-              <td>RP 41 Y RP 34</td>
-              <td>69</td>
-            </tr>
-            <tr>
-              <td>Puerto San Antonio (Chile)</td>
-              <td>RN 7</td>
-              <td>506</td>
-            </tr>
-            <tr>
-              <td>Paso Internacional</td>
-              <td>RN 7</td>
-              <td>246</td>
-            </tr>
-            <tr>
-              <td>Mendoza</td>
-              <td>RN 40</td>
-              <td>41</td>
-            </tr>
-            <tr>
-              <td>Centro urbano más próximo</td>
-              <td>Villa Tulumaya</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>Buenos Aires</td>
-              <td>RN 7</td>
-              <td>1077</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-md-6 tarjetas text-white">
+        <div class="list-container">
+          <h4>Ubicación Estratégica</h4>
+          <p>Aeropuerto Francisco Gabrielli, RN 40, 35 Km</p>
+          <p>Estación Multimodal FFCC Palmira, RP 41 Y RP 34, 69 Km</p>
+          <p>Puerto San Antonio (Chile), RN 7, 506 Km</p>
+          <p>Paso Internacional, RN 7, 246 Km</p>
+          <p>Mendoza, RN 40, 41 Km</p>
+          <p>Centro urbano más próximo, Villa Tulumaya, 2 Km</p>
+          <p>Buenos Aires, RN 7, 1077 Km</p>
+          <br>
+          <h4>Límites</h4>
+          <p>Norte: Calle Los Pastalitos y Carlos Recchia</p>
+          <p>Sur: Ruta Provincial 34</p>
+          <p>Este: Furlan l</p>
+          <p>Oeste: Calle San Juan</p>
+        </div>
       </div>
+      
+      
+      
       
 </section>
 
 
-
 <section class="caracteristicas" id="caracteristicas">
-  <div class="container bg-dark">
+  <div class="container ubi">
     <div>
-      <h3 class="text-white">Caracteristícas</h3>
+      <h3>CARACTERÍSTICAS</h3>
     </div>
   </div>
   <div class="map-container">
@@ -234,6 +199,78 @@
   });
 </script>
   
+</section>
+<section class="servicios" id="servicios">
+  <div class="container">
+    <h3 class="ubi">Servicios</h3>
+    <div class="row text-center bg-light p-3">
+      <!-- Tarjeta 1: Agua -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card servicio-card">
+          <div class="card-body">
+            <i class="fas fa-tint servicio-icon"></i>
+            <h5 class="card-title">Agua Potable</h5>
+            <p class="card-text">Servicio de agua potable para todos los usuarios.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2: Electricidad -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card servicio-card">
+          <div class="card-body">
+            <i class="fas fa-bolt servicio-icon"></i>
+            <h5 class="card-title">Electricidad</h5>
+            <p class="card-text">Conexión eléctrica garantizada en todas las áreas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3: Baños -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card servicio-card">
+          <div class="card-body">
+            <i class="fas fa-restroom servicio-icon"></i>
+            <h5 class="card-title">Baños</h5>
+            <p class="card-text">Instalaciones sanitarias limpias y accesibles.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4: Cloacas -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card servicio-card">
+          <div class="card-body">
+            <i class="fas fa-water servicio-icon"></i>
+            <h5 class="card-title">Cloacas</h5>
+            <p class="card-text">Sistema de cloacas eficiente y moderno.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5: Alumbrado -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card servicio-card">
+          <div class="card-body">
+            <i class="fas fa-lightbulb servicio-icon"></i>
+            <h5 class="card-title">Alumbrado Público</h5>
+            <p class="card-text">Iluminación pública en calles y áreas comunes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 6: Seguridad -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card servicio-card">
+          <div class="card-body">
+            <i class="fas fa-shield-alt servicio-icon"></i>
+            <h5 class="card-title">Seguridad</h5>
+            <p class="card-text">Seguridad garantizada para residentes y visitantes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
