@@ -128,6 +128,11 @@ h4{
   font-size: 2rem;
  
 }
+h5{
+  color: #f2f3f5;
+  font-size: 1.2rem;
+ 
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -196,6 +201,10 @@ table {
   margin-bottom: 5px; /* Ajusta el espacio entre los párrafos */
 }
 
+.servicios{
+  margin-bottom: 100px;
+}
+
 .servicio-card {
   border: 1px solid #ddd; /* Borde sutil */
   border-radius: 10px; /* Bordes redondeados */
@@ -222,4 +231,58 @@ table {
 .card-text {
   font-size: 0.9rem; /* Texto más compacto */
   color: #555; /* Color secundario */
+}
+/* Footer Base Styles */
+.custom-footer {
+  background-color: #004d66; /* Fondo azul oscuro */
+  color: #e8f5e9; /* Texto en verde claro */
+  padding: 40px 0;
+}
+
+.footer-container {
+  display: flex;
+  gap: 30px; /* Espaciado entre las columnas */
+  align-items: flex-start;
+}
+
+.footer-column {
+  flex: 1; /* Para que las columnas sean del mismo ancho */
+  color: #fff;
+}
+
+.bordered-column {
+  border-left: 2px solid #8ec0a5; /* Línea vertical */
+  padding-left: 20px; /* Espaciado entre la línea y el contenido */
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+a {
+  color: #8ec0a5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-column {
+      margin-bottom: 20px;
+  }
+}
+
+.diseño p {
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.5rem;
+  color: #fff
+  ;
 }
