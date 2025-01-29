@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Loteamiento</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    
+    
+    <style>
+        body {
+            background-color: grey;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            flex: 1;
+            height: 100%;
+        }
+        #info {
+            width: 300px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        #info h2 {
+            margin-top: 0;
+        }
+        #info p {
+            margin: 10px 0;
+        }
+
+        .capas {
+            display: flex; 
+            flex-direction: column;
+        }
+
+        
+
+        i[class*="orange"] {
+            color: orange;
+            text-shadow: 0 0 2px black;
+            
+
+        }
+        i[class*="blue"] { 
+            color: blue;
+            text-shadow: 0 0 2px black;
+        }
+        i[class*="green"] {
+            color: green;
+            text-shadow: 0 0 2px black;
+        }
+        i[class*="white"] {
+            color: white;
+            text-shadow: 0 0 2px black;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="info">
+        <h2>Información del Lote</h2>
+        <p><strong>Lote:</strong> <span id="lote-numero">-</span></p>
+        <p><strong>Área:</strong> <span id="lote-area">-</span> m²</p>
+        <p><strong>Propietario:</strong> <span id="lote-propietario">-</span></p>
+        <p><strong>Estado:</strong> <span id="lote-estado">-</span></p>
+        <div style="height: 10px;"></div>
+        <div class="layers">
+            <p><b>Referencias</b></p>
+            
+            
+
+            <div class="layer">
+                <i class="fa fa-circle orange icon"></i>
+                
+                <label for="naranja">Alto impacto</label>
+            </div>
+            
+            <div class="layer">
+                <i class="fa fa-circle blue icon"></i>
+                
+                <label for="azul">Medio impacto</label>
+            </div>
+            <div class="layer">
+                <i class="fa fa-circle green icon"></i>
+                
+                <label for="verde">Bajo impacto</label>
+            </div>
+            <div class="layer">
+                <i class="fa fa-circle white icon"></i>
+                
+                <label for="transparente">Sin impacto</label>
+            </div>
+        </div>
+    </div>
+  
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=" async defer></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-omnivore/0.3.4/leaflet-omnivore.min.js"></script>
+    <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js"></script>
+    
+    <script>
+
+
+         
+
+
+        // Inicializar el mapa
+        var map = L.map('map').setView([-32.7247874, -68.5689817], 15); // Coordenadas del centro del mapa
+
+        const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var roadMutant = L.gridLayer
+				.googleMutant({
+					maxZoom: 24,
+					type: "roadmap",
+				})
+				.addTo(map);
+
+			var satMutant = L.gridLayer.googleMutant({
+				maxZoom: 24,
+				type: "satellite",
+			});
+
+			var terrainMutant = L.gridLayer.googleMutant({
+				maxZoom: 24,
+				type: "terrain",
+			});
+
+			var hybridMutant = L.gridLayer.googleMutant({
+				maxZoom: 24,
+				type: "hybrid",
+			});
+
+			var styleMutant = L.gridLayer.googleMutant({
+				styles: [
+					{ elementType: "labels", stylers: [{ visibility: "off" }] },
+					{ featureType: "water", stylers: [{ color: "#444444" }] },
+					{ featureType: "landscape", stylers: [{ color: "#eeeeee" }] },
+					{ featureType: "road", stylers: [{ visibility: "off" }] },
+					{ featureType: "poi", stylers: [{ visibility: "off" }] },
+					{ featureType: "transit", stylers: [{ visibility: "off" }] },
+					{ featureType: "administrative", stylers: [{ visibility: "off" }] },
+					{
+						featureType: "administrative.locality",
+						stylers: [{ visibility: "off" }],
+					},
+				],
+				maxZoom: 24,
+				type: "roadmap",
+			});
+
+			var trafficMutant = L.gridLayer.googleMutant({
+				maxZoom: 24,
+				type: "roadmap",
+			});
+			trafficMutant.addGoogleLayer("TrafficLayer");
+
+			var transitMutant = L.gridLayer.googleMutant({
+				maxZoom: 24,
+				type: "roadmap",
+			});
+			transitMutant.addGoogleLayer("TransitLayer");
+        
+
+       
+        var baseLayers = {
+            "OpenStreetMap": openStreetMap,
+            "Google Road": roadMutant,
+            "Google Satellite": satMutant,
+            "Google Terrain": terrainMutant,
+            "Google Hybrid": hybridMutant,
+            "Google Style": styleMutant,
+            "Google Traffic": trafficMutant,
+
+    
+        }
+       
+        L.control.layers(baseLayers).addTo(map);
+        
+
+        
+        function loadKMLLayers(mapRef) {
+
+            const colors_layers = {
+                "naranja":  "#FFA500",
+                "azul": "#0000FF",
+                "verde": "#008000",
+                "transparente": "#FFFFFF"
+            }
+
+
+            // Load the KML file
+            var kmlLayer = omnivore.kml('capas/capas.kml')
+                .on('ready', function() {
+                    // Extract all styles from the KML file
+        
+                    // Iterate through each layer and apply the corresponding style
+                    kmlLayer.eachLayer(function(layer) {
+                      
+                        if (layer.feature.geometry.type === "Polygon") {
+                            var styleId = layer.feature.properties.styleUrl?.split("#")[1];
+                            var description = layer.feature.properties.description;
+                            if (description === 'alto'){
+                                // set the background color to 
+                                layer.setStyle({
+                                    fillColor: colors_layers.naranja,
+                                    fillOpacity: 0.5,
+                                    color: "#000000"
+                                });    
+                            } else if (description === 'medio'){
+                                layer.setStyle({
+                                    fillColor: colors_layers.azul,
+                                    fillOpacity: 0.5,
+                                    color: "#000000"
+                                });
+                            } else if (description === 'bajo'){
+                                layer.setStyle({
+                                    fillColor: colors_layers.verde,
+                                    fillOpacity: 0.5,
+                                    color: "#000000"
+                                });
+                            } else {
+                                layer.setStyle({
+                                    fillColor: colors_layers.transparente,
+                                    fillOpacity: 0.5,
+                                    color: "#000000"
+                                });
+                            }
+
+
+
+                            // Add popup if the 'nombre' property exists
+                            layer.bindPopup(`Impacto: ${description ?? 'Sin impacto'}`);
+                            
+                        }
+                    });
+                })
+                .on('error', function(error) {
+                    console.error('Error loading KML file:', error);
+                })
+                .addTo(mapRef);
+        }
+
+
+        loadKMLLayers(map);
+
+    </script>
+</body>
+</html>

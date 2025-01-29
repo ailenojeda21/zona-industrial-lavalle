@@ -333,3 +333,9 @@ font-family: 'Times New Roman', Times, serif;
   background-color: white;
   color: black;
 }
+.icono-tren {
+  width: 22px; /* Ajusta el tamaño del ícono */
+  height: auto; /* Mantén la proporción */
+  vertical-align: middle; /* Alinea con el texto */
+  filter: brightness(0) invert(1); /* Convierte un ícono oscuro a blanco */
+}
